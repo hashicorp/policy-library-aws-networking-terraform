@@ -40,7 +40,7 @@ protocol_security_group_rules = filter aws_security_group_rules as _, asgr {
 	asgr.change.after.protocol is "-1"
 }
 
-print("CIS 4.2: Ensure no security groups allow ingress from 0.0.0.0/0 to port 3389")
+print("Ensure no security groups allow ingress from 0.0.0.0/0 to port 3389")
 
 deny_public_rdp_security_groups = rule {
 	all rdp_security_groups as _, rsg {

@@ -1,0 +1,6 @@
+// This mock contains sample data only.
+// Replace the contents of this file with
+// any mock data that will allow you to the
+// accurately mimic a scenario in which the
+// policy would pass or fail.
+terraform_version = "1.2.6"

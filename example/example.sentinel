@@ -1,0 +1,15 @@
+import "tfplan/v2" as tfplan
+
+// ------------------------------------------------------------
+// Name:        example.sentinel
+// Category:    Continuous Intergration/Deployment (CICD)
+// Provider:    N/A
+// Resource:    N/A
+// Check:       Enforce Terraform version 1.2.6
+// ------------------------------------------------------------
+// Ensure that all Terraform Cloud workspaces use Terraform
+// 1.2.6 to provision resources.
+// ------------------------------------------------------------
+main = rule {
+	tfplan.terraform_version is "1.2.6"
+}

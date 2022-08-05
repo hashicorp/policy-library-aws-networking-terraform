@@ -7,8 +7,6 @@ allDefaultNetworkACLs = filter tfplan.resource_changes as _, resource_changes {
 			resource_changes.change.actions is ["update"])
 }
 
-print("Ensure the default security group of every VPC restricts all traffic")
-
 deny_undefined_ingress_configuration = rule {
 	all allDefaultNetworkACLs as _, acls {
 		keys(acls.change.after) contains "ingress"
@@ -17,7 +15,7 @@ deny_undefined_ingress_configuration = rule {
 
 deny_all_vpc_inbound_acls = rule when deny_undefined_ingress_configuration is true {
 	all allDefaultNetworkACLs as _, acls {
-		length(acls.change.after.ingress) == 0
+		acls.change.after.ingress is empty
 	}
 }
 
@@ -29,10 +27,21 @@ deny_undefined_egress_configuration = rule {
 
 deny_all_vpc_outbound_acls = rule when deny_undefined_egress_configuration is true {
 	all allDefaultNetworkACLs as _, acls {
-		length(acls.change.after.egress) == 0
+		acls.change.after.egress is empty
 	}
 }
 
+// --------------------------------------------------------
+// Name:        restrict-all-vpc-traffic-acl-rules.sentinel
+// Category:    Networking
+// Provider:    hashicorp/aws
+// Resource:    aws_default_network_acl
+// Check:       egress block is empty
+//              ingress block is empty
+// --------------------------------------------------------
+// Ensure the default security group of every VPC restricts
+// all traffic
+// --------------------------------------------------------
 main = rule {
 	deny_undefined_ingress_configuration and
 	deny_undefined_egress_configuration and

@@ -80,7 +80,7 @@ deny_all_open_protocol_security_group_rules = rule {
 //              when port is "22" or protocl is "-1"
 // --------------------------------------------------------
 // Ensure no security groups allow ingress from 0.0.0.0/0
-// to port 3389.
+// to port 22.
 // --------------------------------------------------------
 main = rule {
 	deny_public_ssh_security_groups and

@@ -1,5 +1,5 @@
 # AWS Networking Sentinel Policies for Terraform
-This library, provides prescriptive Terraform policies that can be used to establish secure Terraform configuration for Amazon Web Services. The policies that are contained in this library are based on the [CIS Amazon Web Services Benchmarks](https://www.cisecurity.org/benchmark/amazon_web_services). Terraform Cloud/Enterprise users can use the policies in this library to establish a foundational level of security for the services that they are adopting in Amazon Web Services.
+This library, provides prescriptive Sentinel policies that can be used to establish secure Terraform configuration for Amazon Web Services. The policies that are contained in this library are based on the [CIS Amazon Web Services Benchmarks](https://www.cisecurity.org/benchmark/amazon_web_services). Terraform Cloud/Enterprise users can use the policies in this library to establish a foundational level of security for the services that they are adopting in Amazon Web Services.
 
 > **NOTE:**
 >

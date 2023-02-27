@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 policy "deny-public-ssh-acl-rules" {
   source = "./policies/deny-public-ssh-acl-rules/deny-public-ssh-acl-rules.sentinel"
 }

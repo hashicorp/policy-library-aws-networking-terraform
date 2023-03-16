@@ -22,7 +22,7 @@ trace:
                        when port is "22" or protocl is "-1"
           --------------------------------------------------------
           Ensure no security groups allow ingress from 0.0.0.0/0
-          to port 3389.
+          to port 22.
           --------------------------------------------------------
 
         Value:

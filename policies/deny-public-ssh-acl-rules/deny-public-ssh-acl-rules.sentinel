@@ -40,7 +40,6 @@ protocol_security_group_rules = filter aws_security_group_rules as _, asgr {
 	asgr.change.after.protocol is "-1"
 }
 
-
 deny_public_ssh_security_groups = rule {
 	all ssh_security_groups as _, ssg {
 		all ssg.change.after.ingress as _, ingress {

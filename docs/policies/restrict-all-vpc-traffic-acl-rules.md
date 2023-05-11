@@ -9,21 +9,24 @@ Configuring all VPC default security groups to restrict all traffic will encoura
 
 ## Policy Results (Pass)
 ```bash
-trace:
-      restrict-all-vpc-traffic-acl-rules.sentinel:47:1 - Rule "main"
+    trace:
+      restrict-all-vpc-traffic-acl-rules.sentinel:35:1 - Rule "main"
         Description:
-          --------------------------------------------------------
-          Name:        restrict-all-vpc-traffic-acl-rules.sentinel
-          Category:    Networking
-          Provider:    hashicorp/aws
-          Resource:    aws_default_network_acl
-          Check:       egress block is empty
-                       ingress block is empty
-          --------------------------------------------------------
-          Ensure the default security group of every VPC restricts
-          all traffic
-          --------------------------------------------------------
+          Ensure the default security group of every VPC restricts all
+          traffic
 
+        Value:
+          false
+
+      restrict-all-vpc-traffic-acl-rules.sentinel:16:1 - Rule "deny_all_vpc_inbound_acls"
+        Value:
+          false
+
+      restrict-all-vpc-traffic-acl-rules.sentinel:22:1 - Rule "deny_undefined_egress_configuration"
+        Value:
+          true
+
+      restrict-all-vpc-traffic-acl-rules.sentinel:10:1 - Rule "deny_undefined_ingress_configuration"
         Value:
           true
 ```

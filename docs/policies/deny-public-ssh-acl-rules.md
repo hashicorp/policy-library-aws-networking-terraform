@@ -10,23 +10,17 @@ Removing unfettered connectivity to remote console services, such as SSH, reduce
 ## Policy Results (Pass)
 ```bash
 trace:
-      deny-public-ssh-acl-rules.sentinel:85:1 - Rule "main"
+      deny-public-ssh-acl-rules.sentinel:72:1 - Rule "main"
         Description:
-          --------------------------------------------------------
-          Name:        deny-public-ssh-acl-rules.sentinel
-          Category:    Networking
-          Provider:    hashicorp/aws
-          Resource:    aws_security_group
-                       aws_security_group_rule
-          Check:       cidr_blocks does not contain "0.0.0.0/0"
-                       when port is "22" or protocl is "-1"
-          --------------------------------------------------------
-          Ensure no security groups allow ingress from 0.0.0.0/0
-          to port 22.
-          --------------------------------------------------------
+          Ensure no security groups allow ingress from 0.0.0.0/0 to port
+          22.
 
         Value:
-          true
+          false
+
+      deny-public-ssh-acl-rules.sentinel:43:1 - Rule "deny_public_ssh_security_groups"
+        Value:
+          false
 ```
 
 ---

@@ -40,8 +40,6 @@ protocol_security_group_rules = filter aws_security_group_rules as _, asgr {
 	asgr.change.after.protocol is "-1"
 }
 
-print("Ensure no AWS security groups allow ingress from 0.0.0.0/0 to port 22")
-
 deny_public_ssh_security_groups = rule {
 	all ssh_security_groups as _, ssg {
 		all ssg.change.after.ingress as _, ingress {
@@ -70,18 +68,7 @@ deny_all_open_protocol_security_group_rules = rule {
 	}
 }
 
-// --------------------------------------------------------
-// Name:        deny-public-ssh-acl-rules.sentinel
-// Category:    Networking
-// Provider:    hashicorp/aws
-// Resource:    aws_security_group
-//              aws_security_group_rule
-// Check:       cidr_blocks does not contain "0.0.0.0/0"
-//              when port is "22" or protocl is "-1"
-// --------------------------------------------------------
-// Ensure no security groups allow ingress from 0.0.0.0/0
-// to port 22.
-// --------------------------------------------------------
+// Ensure no security groups allow ingress from 0.0.0.0/0 to port 22.
 main = rule {
 	deny_public_ssh_security_groups and
 	deny_public_ssh_security_group_rules and

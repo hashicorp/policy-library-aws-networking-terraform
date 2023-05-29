@@ -31,17 +31,7 @@ deny_all_vpc_outbound_acls = rule when deny_undefined_egress_configuration is tr
 	}
 }
 
-// --------------------------------------------------------
-// Name:        restrict-all-vpc-traffic-acl-rules.sentinel
-// Category:    Networking
-// Provider:    hashicorp/aws
-// Resource:    aws_default_network_acl
-// Check:       egress block is empty
-//              ingress block is empty
-// --------------------------------------------------------
-// Ensure the default security group of every VPC restricts
-// all traffic
-// --------------------------------------------------------
+// Ensure the default security group of every VPC restricts all traffic
 main = rule {
 	deny_undefined_ingress_configuration and
 	deny_undefined_egress_configuration and

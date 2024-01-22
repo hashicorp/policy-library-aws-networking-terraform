@@ -121,6 +121,60 @@ resource_changes = {
 				"description": "foo",
 				"ingress": [
 					{
+						"cidr_blocks": null,
+						"description":      "foo",
+						"from_port":        22,
+						"ipv6_cidr_blocks": [],
+						"prefix_list_ids":  [],
+						"protocol":         "tcp",
+						"security_groups":  [],
+						"self":             true,
+						"to_port":          22,
+					},
+				],
+				"name":                   "foo",
+				"name_prefix":            null,
+				"revoke_rules_on_delete": false,
+				"tags":     null,
+				"timeouts": null,
+			},
+			"after_unknown": {
+				"arn":    true,
+				"egress": true,
+				"id":     true,
+				"ingress": [
+					{
+						"cidr_blocks": [
+							false,
+						],
+						"ipv6_cidr_blocks": [],
+						"prefix_list_ids":  [],
+						"security_groups":  [],
+					},
+				],
+				"owner_id": true,
+				"vpc_id":   true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "foo",
+		"provider_name":  "aws",
+		"type":           "aws_security_group",
+	},
+	"aws_security_group.foo": {
+		"address": "aws_security_group.foo",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"description": "foo",
+				"ingress": [
+					{
 						"cidr_blocks": [
 							"10.0.0.0/16",
 						],
@@ -307,6 +361,41 @@ resource_changes = {
 		"mode":           "managed",
 		"module_address": "",
 		"name":           "ham",
+		"provider_name":  "aws",
+		"type":           "aws_security_group_rule",
+	},
+	"aws_security_group_rule.self": {
+		"address": "aws_security_group_rule.self",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"cidr_blocks": null,
+				"description":      "self",
+				"from_port":        0,
+				"ipv6_cidr_blocks": null,
+				"prefix_list_ids":  null,
+				"protocol":         "tcp",
+				"self":             true,
+				"to_port":          1024,
+				"type":             "ingress",
+			},
+			"after_unknown": {
+				"cidr_blocks": [
+					false,
+				],
+				"id":                       true,
+				"security_group_id":        true,
+				"source_security_group_id": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "self",
 		"provider_name":  "aws",
 		"type":           "aws_security_group_rule",
 	},

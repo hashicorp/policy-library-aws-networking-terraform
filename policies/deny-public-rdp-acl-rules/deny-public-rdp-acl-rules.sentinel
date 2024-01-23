@@ -18,26 +18,28 @@ aws_security_group_rules = filter tfplan.resource_changes as _, resource_changes
 
 rdp_security_groups = filter aws_security_groups as _, asg {
 	any asg.change.after.ingress as _, ingress {
-		ingress.to_port is 3389 or
-			(ingress.from_port <= 3389 and
-				ingress.to_port >= 3389)
+		!ingress.self and
+			(ingress.to_port is 3389 or
+				(ingress.from_port <= 3389 and
+					ingress.to_port >= 3389))
 	}
 }
 
 rdp_security_group_rules = filter aws_security_group_rules as _, asgr {
-	asgr.change.after.to_port is 3389 or
-		(asgr.change.after.from_port <= 3389 and
-			asgr.change.after.to_port >= 3389)
+	!asgr.change.after.self and
+		(asgr.change.after.to_port is 3389 or
+			(asgr.change.after.from_port <= 3389 and
+				asgr.change.after.to_port >= 3389))
 }
 
 protocol_security_groups = filter aws_security_groups as _, asg {
 	all asg.change.after.ingress as _, ingress {
-		ingress.protocol is "-1"
+		ingress.protocol is "-1" and !ingress.self
 	}
 }
 
 protocol_security_group_rules = filter aws_security_group_rules as _, asgr {
-	asgr.change.after.protocol is "-1"
+	asgr.change.after.protocol is "-1" and !asgr.change.after.self
 }
 
 deny_public_rdp_security_groups = rule {

@@ -121,7 +121,7 @@ resource_changes = {
 				"description": "foo",
 				"ingress": [
 					{
-						"cidr_blocks": null,
+						"cidr_blocks":      null,
 						"description":      "foo",
 						"from_port":        22,
 						"ipv6_cidr_blocks": [],
@@ -371,7 +371,7 @@ resource_changes = {
 				"create",
 			],
 			"after": {
-				"cidr_blocks": null,
+				"cidr_blocks":      null,
 				"description":      "self",
 				"from_port":        0,
 				"ipv6_cidr_blocks": null,

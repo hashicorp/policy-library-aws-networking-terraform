@@ -3,4 +3,7 @@
 // any mock data that will allow you to the
 // accurately mimic a scenario in which the
 // policy would pass or fail.
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 terraform_version = "1.2.0"

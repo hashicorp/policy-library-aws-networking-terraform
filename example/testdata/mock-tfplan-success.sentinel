@@ -3,4 +3,6 @@
 // any mock data that will allow you to the
 // accurately mimic a scenario in which the
 // policy would pass or fail.
+# Copyright IBM Corp. 2022, 2026
+
 terraform_version = "1.2.6"
